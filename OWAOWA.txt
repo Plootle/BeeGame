@@ -1,0 +1,14 @@
+THINGS TO DO:
+
+change the dice rolls in combat and job type
+
+Make Facilitites
+- all facilities have # of bees
+- calling any facility will display # of bees, amount of hgoney,wax,nectar, etc
+
+# Nursery
+    Based on material, prompt user how many babies to make
+
+# Maybe make a honey hospital or reset their hp
+# Wax Factory
+    
