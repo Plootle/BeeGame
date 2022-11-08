@@ -5,17 +5,17 @@ public class EnemyFactory
     {
         if(enemyName.equals("hornet"))
         {
-            return new Hornet();
+            return new Hornet(new hornet());
         }
 
         if(enemyName.equals("yellowjacket"))
         {
-            return new YellowJacket();
+            return new YellowJacket(new yellowjacket());
         }
 
         if(enemyName.equals("dragonfly"))
         {
-            return new DragonFly();
+            return new DragonFly(new dragonfly());
         }
         return null;
     }

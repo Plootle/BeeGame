@@ -1,4 +1,4 @@
-import java.util.Random;
+//import java.util.Random;
 
 public abstract class BeeType
 {
@@ -7,7 +7,7 @@ public abstract class BeeType
     abstract public int fight();
     abstract public int work();
     public String getName() {return "";}
-    Random rn = new Random();
+    //Random rn = new Random();
     protected CombatType combat;
     protected JobType work;
     public BeeType(CombatType combatType, JobType jobType){this.combat = combatType; this.work = jobType;}
