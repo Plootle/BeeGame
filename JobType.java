@@ -2,7 +2,7 @@ import java.util.Random;
 
 public interface JobType
 {
-    public int work();
+    public int work(String event);
     Random rn = new Random();
 }
 
@@ -15,9 +15,13 @@ class efficient implements JobType
 {
     //the drones jobs are to bring back the most nectar
     @Override
-    public int work()
+    public int work(String event)
     {
-        int nectar = rn.nextInt(20) + 15;
+        int nectar = 0;
+        if(event == "jazz")
+            nectar = (rn.nextInt(20) + 15) * 2;
+        else
+            nectar = rn.nextInt(20) + 15;
         return nectar;
     }
 }
@@ -26,9 +30,13 @@ class helpful implements JobType
 {
     //workers and guardians can be helpful with nectar gathering
     @Override
-    public int work()
+    public int work(String event)
     {
-        int nectar = rn.nextInt(6) + 1;
+        int nectar = 0;
+        if(event == "jazz")
+            nectar = (rn.nextInt(6) + 1) * 2;
+        else
+            nectar = rn.nextInt(6) + 1;
         return nectar;
     }
 }
@@ -37,7 +45,7 @@ class lazy implements JobType
 {
     //the queen and babies dont help with nectar gathering
     @Override
-    public int work()
+    public int work(String event)
     {
         return 0;
     }

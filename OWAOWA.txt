@@ -12,3 +12,5 @@ Make Facilitites
 # Maybe make a honey hospital or reset their hp
 # Wax Factory
     
+Save Load Functionality to game
+Approach is tog et to x amount of days for assignment

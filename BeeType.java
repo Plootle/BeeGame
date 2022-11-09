@@ -11,6 +11,7 @@ public abstract class BeeType
     protected CombatType combat;
     protected JobType work;
     public BeeType(CombatType combatType, JobType jobType){this.combat = combatType; this.work = jobType;}
+    String event = "";
     
     //checks to make sure the bee is still alive
     public Boolean isAlive()
@@ -60,7 +61,7 @@ class Queen extends BeeType
     @Override
     public int work()
     {
-        return work.work();
+        return work.work(event);
     }
 }
 
@@ -83,7 +84,7 @@ class Baby extends BeeType
     @Override
     public int work()
     {
-        return work.work();
+        return work.work(event);
     }
 }
 
@@ -106,7 +107,7 @@ class Guardian extends BeeType
     @Override
     public int work()
     {
-        return work.work();
+        return work.work(event);
     }
 }
 
@@ -129,7 +130,7 @@ class Drone extends BeeType
     @Override
     public int work()
     {
-        return work.work();
+        return work.work(event);
     }
 }
 
@@ -152,6 +153,6 @@ class Worker extends BeeType
     @Override
     public int work()
     {
-        return work.work();
+        return work.work(event);
     }
 }

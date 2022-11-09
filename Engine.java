@@ -14,6 +14,9 @@ public class Engine
     int nectar = 0;
     int honey = 0;
     int wax = 0;
+    int queenBee = 1;
+    int workerBees = 0;
+
 
     // boolean that will trigger the end condition for the game
     boolean gameEnd = false;
