@@ -14,3 +14,12 @@ Make Facilitites
     
 Save Load Functionality to game
 Approach is tog et to x amount of days for assignment
+
+CURRENT PATTERNS
+1. command pattern
+2. factory pattern
+3. decorator pattern
+4. strategy pattern
+
+If we keep logger
+5. singleton pattern

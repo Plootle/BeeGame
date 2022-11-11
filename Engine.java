@@ -4,6 +4,7 @@ public class Engine
 {
     // needed to interact with the user and populate enemies and bee's
     UserInterface user = new UserInterface();
+    //UserCommands command = new UserCommands();
     BeeFactory beeFactory = new BeeFactory();
     EnemyFactory enemyFactory = new EnemyFactory();
 
@@ -25,6 +26,7 @@ public class Engine
     {
         while(gameEnd == false)
         {
+            user.UI(dayCounter);
             //check to see if the game is over
             for(int i = 0; i < beeType.size(); i++)
             {

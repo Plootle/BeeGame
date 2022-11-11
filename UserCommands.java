@@ -1,3 +1,5 @@
+
+// Here, we implement the use of a command pattern
 public interface UserCommands
 {
     public void option();
@@ -12,7 +14,8 @@ class upgrade implements UserCommands
     @Override
     public void option()
     {
-
+        //system.in
+        //if statements for options
     }
 }
 /*
