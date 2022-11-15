@@ -65,7 +65,7 @@ class hornet implements CombatType
     @Override
     public int combat()
     {
-        //return the amount of damage the worker does
+        //return the amount of damage the hornet does
         int roll = rn.nextInt(6) + 1;
         return roll;
     }
@@ -76,7 +76,7 @@ class yellowjacket implements CombatType
     @Override
     public int combat()
     {
-        //return the amount of damage the worker does
+        //return the amount of damage the yellowjacket does
         int roll = rn.nextInt(6) + 1;
         return roll;
     }
@@ -87,7 +87,7 @@ class dragonfly implements CombatType
     @Override
     public int combat()
     {
-        //return the amount of damage the worker does
+        //return the amount of damage the dragonfly does
         int roll = rn.nextInt(6) + 1;
         return roll;
     }

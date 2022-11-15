@@ -6,10 +6,9 @@ public interface UserCommands
 }
 
 /*
- * Upgrade Facilites to hold more workers, rate fo production 
- * 
+ * Upgrades will increase capacity for the specified resource
  */
-class upgrade implements UserCommands
+class beeUpgrade implements UserCommands
 {
     @Override
     public void option()
@@ -18,16 +17,34 @@ class upgrade implements UserCommands
         //if statements for options
     }
 }
-/*
- * Shows user resources and prompts the production of said resources
- * (ie x honey to make y wax)
- */
-class produce implements UserCommands
+
+class honeyUpgrade implements UserCommands
 {
     @Override
     public void option()
     {
-        
+        //system.in
+        //if statements for options
+    }
+}
+
+class nectarUpgrade implements UserCommands
+{
+    @Override
+    public void option()
+    {
+        //system.in
+        //if statements for options
+    }
+}
+
+class waxUpgrade implements UserCommands
+{
+    @Override
+    public void option()
+    {
+        //system.in
+        //if statements for options
     }
 }
 
@@ -39,6 +56,29 @@ class produce implements UserCommands
  * - Day Count
  */
 class collection implements UserCommands
+{
+    @Override
+    public void option()
+    {
+        
+    }
+}
+
+/*
+ * Shows user resources and prompts the production of said resources
+ * (ie x nectar to make y honey)
+ * it also allows the user to produce bees for x amount of honey
+ */
+class honeyProduce implements UserCommands
+{
+    @Override
+    public void option()
+    {
+        
+    }
+}
+
+class waxProduce implements UserCommands
 {
     @Override
     public void option()
