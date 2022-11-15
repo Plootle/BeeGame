@@ -6,7 +6,7 @@ public class UserInterface
     String mainSelect[] = {"upgrade", "collection", "production", "end day"};
     String upgradeSelect[] = {"bees", "honey", "nectar", "wax"};   //subject to change
     String collectSelect[] = {"cancel"};
-    String produceSelect[] = {"honey", "wax", "cancel"};
+    String produceSelect[] = {"honey", "wax", "worker", "drone", "guardian", "cancel"};
     String finalSelect[] = {"ok", "cancel"};
     Scanner scanner = new Scanner(System.in);
     String breaker = "******************************************";
@@ -77,7 +77,6 @@ public class UserInterface
             validInput(userInput, upgradeSelect);
             if (userInput == "bees")
             {
-
                 text("Bees: Capacity increases from " );//+ curHoney + " --> " + newHoney);
                 text("Cost: " + "resources here");
                 text(breaker);
@@ -86,12 +85,13 @@ public class UserInterface
                 validInput(userInput, finalSelect);
                 if(userInput == "ok")
                 {
+                    // run check to see if they can afford it
                     UserCommands beeUpgrade = new beeUpgrade();
                     beeUpgrade.option();   
                 }
                 if(userInput == "cancel")
                 {
-                    //recursion? go back to the start day?
+                    UI(day);
                 }
             }
             if (userInput == "honey")
@@ -109,7 +109,7 @@ public class UserInterface
                 }
                 if(userInput == "cancel")
                 {
-                    //recursion? go back to the start day?
+                    UI(day);
                 }
             }
             if (userInput == "nectar")
@@ -127,7 +127,7 @@ public class UserInterface
                 }
                 if(userInput == "cancel")
                 {
-                    //recursion? go back to the start day?
+                    UI(day);
                 }
             }
             if (userInput == "wax")
@@ -145,10 +145,9 @@ public class UserInterface
                 }
                 if(userInput == "cancel")
                 {
-                    //recursion? go back to the start day?
+                    UI(day);
                 }
             }
-            // upgrading the queens chamber upgrades bees 
         }
 
         /*
@@ -156,17 +155,18 @@ public class UserInterface
          */
         if (userInput == "collection")
         {
+            // call the collection option and display the necessary info
             UserCommands collection = new collection();
             collection.option();
-            // the above will display everything and the below makes it so
-            // the screen will not move on until the player selects cancel
             text(breaker);
             text("Cancel");
             userInput = scanner.nextLine();
-            validInput(userInput, collectSelect); //get at position 1 or make a new string that just says cancel
+            validInput(userInput, collectSelect);
+            
+            // allows the player to look at the info until they type cancel
             if(userInput == "cancel")
             {
-                //recursion? go back to the start day?  
+                UI(day);  
             }
         }
         
@@ -198,14 +198,24 @@ public class UserInterface
                 UserCommands waxProd = new waxProduce();
                 waxProd.option();
             }
-            // if(userInput == "wax")       //can we make this one beeProduce in user commands?
-            // {                            //if not, we need a workerProduce, droneProduce, and guardianProduce
-            //     UserCommands waxProd = new waxProduce();
-            //     waxProd.option();
-            // }
+            if(userInput == "worker")       
+            {
+                UserCommands workProd = new workProduce();
+                workProd.option();
+            }
+            if(userInput == "drone")       
+            {
+                UserCommands droneProd = new droneProduce();
+                droneProd.option();
+            }
+            if(userInput == "guardian")       
+            {
+                UserCommands guardianProd = new guardianProduce();
+                guardianProd.option();
+            }
             if(userInput == "cancel")
             {
-                //recursion? go back to the start day? 
+                UI(day);
             }
         }
 

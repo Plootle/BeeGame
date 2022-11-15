@@ -87,6 +87,33 @@ class waxProduce implements UserCommands
     }
 }
 
+class workProduce implements UserCommands
+{
+    @Override
+    public void option()
+    {
+        
+    }
+}
+
+class droneProduce implements UserCommands
+{
+    @Override
+    public void option()
+    {
+        
+    }
+}
+
+class guardianProduce implements UserCommands
+{
+    @Override
+    public void option()
+    {
+        
+    }
+}
+
 /*
  * Takes game to a new day
  * important for progressing growth of baby bees, 

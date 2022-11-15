@@ -2,18 +2,11 @@ THINGS TO DO:
 
 change the dice rolls in combat and job type
 
-Make Facilitites
-- all facilities have # of bees
-- calling any facility will display # of bees, amount of honey,wax,nectar, etc
-
-# Nursery
-    Based on material, prompt user how many babies to make
-
 # Maybe make a honey hospital or reset their hp
-# Wax Factory
+lets make our life easy and have bees fully heal after combat (for now)
     
 Save Load Functionality to game
-Approach is tog et to x amount of days for assignment
+Approach is to get to x amount of days for assignment
 
 CURRENT PATTERNS
 1. command pattern - user commands
@@ -23,8 +16,6 @@ CURRENT PATTERNS
 
 If we keep logger
 5. singleton pattern
-
-lets make our life easy and have bees fully heal after combat
 
 need to make something that prompts the user when they don't have 
 enough resources to do what they want
