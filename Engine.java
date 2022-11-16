@@ -9,14 +9,14 @@ public class Engine
     EnemyFactory enemyFactory = new EnemyFactory();
 
     ArrayList<BeeType> beeType = new ArrayList<BeeType>();
-
+    Hive hive = new Hive();
     // counters to keep track of the day and the amount of resources
     int dayCounter = 0;
     int nectar = 0;
     int honey = 0;
     int wax = 0;
     int queenBee = 1;
-    int workerBees = 0;
+    int workerBee = 0;
 
 
     // boolean that will trigger the end condition for the game
@@ -26,7 +26,7 @@ public class Engine
     {
         while(gameEnd == false)
         {
-            user.UI(dayCounter);
+            user.UI(hive);
             //check to see if the game is over
             for(int i = 0; i < beeType.size(); i++)
             {

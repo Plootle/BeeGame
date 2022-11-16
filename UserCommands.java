@@ -83,7 +83,12 @@ class waxProduce implements UserCommands
     @Override
     public void option()
     {
-        
+        /*
+         * upgradeType
+         *  1. check if resrouces are met
+         *      1.5 do the operation
+         *  2. return not enough resources
+         */
     }
 }
 

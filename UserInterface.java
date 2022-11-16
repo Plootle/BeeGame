@@ -10,7 +10,7 @@ public class UserInterface
     String finalSelect[] = {"ok", "cancel"};
     Scanner scanner = new Scanner(System.in);
     String breaker = "******************************************";
-
+    UpgradeType ut = new UpgradeType();
     // this allows us to type "text" instead of System.out.println over and over
     void text(Object line)
     {
@@ -41,24 +41,9 @@ public class UserInterface
         return userIn;
     }
 
-    // public String notEnoughResources() //compare int values?
-    // {
-    //     if(value 1 < value reqluired)
-    //     {
-    //         text("You don't have enough resources!");
-    //     }
-    // }
-
-    // public String notEnoughSpace() //compare int values?
-    // {
-    //     if(value 1 < value reqluired)
-    //     {
-    //         text("You don't have enough inventory space!");
-    //     }
-    // }
-
-    public void UI(int day)
+    public void UI(Hive hive)
     {
+        int day = hive.getDay();
         text("It is day " + day + "!");
         text("What would you like to do today?");
         text(breaker);
@@ -77,45 +62,58 @@ public class UserInterface
             validInput(userInput, upgradeSelect);
             if (userInput == "bees")
             {
-                text("Bees: Capacity increases from " );//+ curHoney + " --> " + newHoney);
-                text("Cost: " + "resources here");
+                text("Bees: Capacity increases from " + hive.getBeeInv() + " --> " + hive.getBeeInv() + 20);
+                text("Cost: 25 Wax");
                 text(breaker);
                 text("Cancel \t\t\t OK");
                 userInput = scanner.nextLine();
                 validInput(userInput, finalSelect);
-                if(userInput == "ok")
+                
+                if (ut.validateInvUpgrade(hive) == true)
                 {
-                    // run check to see if they can afford it
-                    UserCommands beeUpgrade = new beeUpgrade();
-                    beeUpgrade.option();   
+                    if(userInput == "ok")
+                    {
+                        UserCommands beeUpgrade = new beeUpgrade();
+                        beeUpgrade.option();   
+                    }
                 }
+                else
+                {
+                    UI(hive);
+                }
+                    
                 if(userInput == "cancel")
                 {
-                    UI(day);
+                    UI(hive);
                 }
             }
             if (userInput == "honey")
             {
-                text("Honey: Capacity increases from " );//+ curHoney + " --> " + newHoney);
-                text("Cost: " + "resources here");
+                text("Honey: Capacity increases from " + hive.getHonInv() + " --> " + hive.getHonInv() + 100);
+                text("Cost: 25 Wax");
                 text(breaker);
                 text("Cancel \t\t\t OK");
                 userInput = scanner.nextLine();
                 validInput(userInput, finalSelect);
-                if(userInput == "ok")
+                if(ut.validateInvUpgrade(hive) == true)
                 {
-                    UserCommands honeyUpgrade = new honeyUpgrade();
-                    honeyUpgrade.option();   
+                    // run check to see if they can afford it
+                    if(userInput == "ok")
+                    {
+                        UserCommands honeyUpgrade = new honeyUpgrade();
+                        honeyUpgrade.option();   
+                    }
+                    if(userInput == "cancel")
+                    {
+                        UI(hive);
+                    }
                 }
-                if(userInput == "cancel")
-                {
-                    UI(day);
-                }
+                
             }
             if (userInput == "nectar")
             {
-                text("Nectar: Capacity increases from " );//+ curHoney + " --> " + newHoney);
-                text("Cost: " + "resources here");
+                text("Nectar: Capacity increases from " + hive.getNecInv() + " --> " + hive.getNecInv() + 100);
+                text("Cost: 25 Wax");
                 text(breaker);
                 text("Cancel \t\t\t OK");
                 userInput = scanner.nextLine();
@@ -127,17 +125,18 @@ public class UserInterface
                 }
                 if(userInput == "cancel")
                 {
-                    UI(day);
+                    UI(hive);
                 }
             }
             if (userInput == "wax")
             {
-                text("Wax: Capacity increases from " );//+ curHoney + " --> " + newHoney);
-                text("Cost: " + "resources here");
+                text("Wax: Capacity increases from " + hive.getWaxInv() + " --> " + hive.getWaxInv() + 100);
+                text("Cost: 25 Wax");
                 text(breaker);
                 text("Cancel \t\t\t OK");
                 userInput = scanner.nextLine();
                 validInput(userInput, finalSelect);
+                //make sure they have the resources
                 if(userInput == "ok")
                 {
                     UserCommands waxUpgrade = new waxUpgrade();
@@ -145,8 +144,12 @@ public class UserInterface
                 }
                 if(userInput == "cancel")
                 {
-                    UI(day);
+                    UI(hive);
                 }
+            }
+            if(userInput == "cancel")
+            {
+                UI(hive);  
             }
         }
 
@@ -166,7 +169,7 @@ public class UserInterface
             // allows the player to look at the info until they type cancel
             if(userInput == "cancel")
             {
-                UI(day);  
+                UI(hive);  
             }
         }
         
@@ -215,7 +218,7 @@ public class UserInterface
             }
             if(userInput == "cancel")
             {
-                UI(day);
+                UI(hive);
             }
         }
 
