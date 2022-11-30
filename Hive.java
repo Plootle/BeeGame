@@ -9,6 +9,7 @@ public class Hive
     private int waxInv = 10;
     private int queenBee = 1;
     private int workerBee = 0;
+    private int availableBees = workerBee;
     private int droneBee = 0;
     private int guardianBee = 0;
     private int beeInv = 20;
@@ -47,6 +48,11 @@ public class Hive
         return workerBee;
     }
 
+    public int getAvailable()
+    {
+        return availableBees;
+    }
+
     public int getDrone()
     {
         return droneBee;
@@ -69,27 +75,35 @@ public class Hive
     {
         dayCounter++;
     }
-    public void addNectar(int add)
+    public void setNectar(int add)
     {
         nectar += add;
     }
-    public void addHoney(int add)
+    public void setHoney(int add)
     {
         honey += add;
     }
-    public void addWax(int add)
+    public void setWax(int add)
     {
         wax += add;
     }
-    public void addWorker(int add)
+    public void setWorker(int add)
     {
         workerBee += add;
     }
-    public void addDrone(int add)
+    public void setAvailable(int add)
+    {
+        availableBees += add;
+    }
+    public void resetAvailable()
+    {
+        availableBees = getWorker();
+    }
+    public void setDrone(int add)
     {
         droneBee += add;
     }
-    public void addGuardian(int add)
+    public void setGuardian(int add)
     {
         guardianBee += add;
     }
@@ -133,5 +147,4 @@ public class Hive
     {
         beeInv += add;
     }
-    
 }
