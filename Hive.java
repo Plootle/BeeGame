@@ -1,17 +1,17 @@
 public class Hive
 {
-    private int dayCounter = 0;
-    private int nectar = 0;
-    private int nectarInv = 10;
+    private int dayCounter = 1;
+    private int nectar = 10;
+    private int nectarInv = 50;
     private int honey = 0;
     private int honeyInv = 10;
     private int wax = 0;
     private int waxInv = 10;
     private int queenBee = 1;
-    private int workerBee = 0;
+    private int workerBee = 4;
     private int availableBees = workerBee;
-    private int droneBee = 0;
-    private int guardianBee = 0;
+    private int droneBee = 4;
+    private int guardianBee = 1;
     private int beeInv = 20;
     //int babyBee = 0;
 

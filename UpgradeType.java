@@ -14,9 +14,9 @@ public class UpgradeType
         int invMax = hive.getHonInv() - hive.getHoney();
         if (maxHoney + hive.getHoney() > hive.getHonInv())
             return invMax;
-        else if(maxHoney >= ab)
+        else if(maxHoney > ab)
             return ab;
-        else if( maxHoney <= ab)
+        else if(maxHoney <= ab)
             return maxHoney;
         
         return 0;
@@ -33,7 +33,7 @@ public class UpgradeType
         int invMax = hive.getWaxInv() - hive.getWax();
         if (maxWax + hive.getWax() > hive.getWaxInv())
             return invMax;
-        else if(maxWax >= ab)
+        else if(maxWax > ab)
             return ab;
         else if( maxWax <= ab)
             return maxWax;
@@ -74,7 +74,7 @@ public class UpgradeType
     public boolean validateInvUpgrade(Hive hive) //compare int values?
     {
         
-        if(hive.getWax() < 25)
+        if(hive.getWax() < 10)
         {
             text("You don't have enough resources!");
             return false;

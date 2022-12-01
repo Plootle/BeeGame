@@ -5,20 +5,12 @@ public class Engine
     // needed to interact with the user and populate enemies and bee's
     UserInterface user = new UserInterface();
     //UserCommands command = new UserCommands();
-    BeeFactory beeFactory = new BeeFactory();
+    //BeeFactory beeFactory = new BeeFactory();
     EnemyFactory enemyFactory = new EnemyFactory();
-
+    RandomEvents event = new RandomEvents();
     ArrayList<BeeType> beeType = new ArrayList<BeeType>();
     Hive hive = new Hive();
-    // counters to keep track of the day and the amount of resources
-    int dayCounter = 0;
-    int nectar = 0;
-    int honey = 0;
-    int wax = 0;
-    int queenBee = 1;
-    int workerBee = 0;
-
-
+    String randomEvent;
     // boolean that will trigger the end condition for the game
     boolean gameEnd = false;
 
@@ -26,7 +18,27 @@ public class Engine
     {
         while(gameEnd == false)
         {
-            user.UI(hive);
+            //get attacked every 10 days
+            if(hive.getDay() == 10)
+            {
+                randomEvent = "atk1";
+            }
+            else if(hive.getDay() == 20)
+            {
+                randomEvent = "atk2";
+            }
+            else if(hive.getDay() == 30)
+            {
+                randomEvent = "atk3";
+            }
+            else
+            {
+                randomEvent = event.getEvent();
+                if(randomEvent.equals("flowers"))
+                    hive.setNectar(10);
+                
+            }
+            user.UI(hive, randomEvent);
             //check to see if the game is over
             for(int i = 0; i < beeType.size(); i++)
             {
@@ -35,6 +47,9 @@ public class Engine
                     gameEnd = true;
                 }
             }
+            //after 31 days (1 month) you win the game!
+            if (hive.getDay() == 31)
+                gameEnd = true;
         }
         return gameEnd;
     }

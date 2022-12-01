@@ -22,8 +22,9 @@ public class UserInterface
      */
     public String validInput(String userIn, String validMoves[])
     {
+        userIn = userIn.toLowerCase();
         //Scanner scanner = new Scanner(System.in);
-        for(int i = 0; i < validMoves.length; i ++)
+        for(int i = 0; i < validMoves.length; i++)
         {
             if(userIn.equals(validMoves[i]))
             {
@@ -41,8 +42,27 @@ public class UserInterface
         return userIn;
     }
 
-    public void UI(Hive hive)
+    public void UI(Hive hive, String event)
     {
+        Battle battle = new Battle();
+        if(event.equals("atk"))
+        {
+            // UserCommands battle = new battle(hive);
+            // battle.option();
+        }
+        if(event.equals("atk1"))
+        {
+            battle.atk1(hive);
+            
+        }
+        if(event.equals("atk2"))
+        {
+            
+        }
+        if(event.equals("atk3"))
+        {
+            
+        }
         int day = hive.getDay();
         text("It is day " + day + "!");
         text("What would you like to do today?");
@@ -52,7 +72,7 @@ public class UserInterface
         String userInput = scanner.nextLine();
         validInput(userInput, mainSelect);
         
-        if (userInput == "upgrade")
+        if (userInput.equals("upgrade"))
         {
             text("What would you like to upgrade?");
             text(breaker);
@@ -60,97 +80,101 @@ public class UserInterface
             text(breaker);
             userInput = scanner.nextLine();
             validInput(userInput, upgradeSelect);
-            if (userInput == "bees")
+            if (userInput.equals("bees"))
             {
-                text("Bees: Capacity increases from " + hive.getBeeInv() + " --> " + hive.getBeeInv() + 20);
-                text("Cost: 25 Wax");
+                int sizeIncrement = hive.getBeeInv() + 20;
+                text("Bees: Capacity increases from " + hive.getBeeInv() + " --> " + sizeIncrement);
+                text("Cost: 10 Wax");
                 text(breaker);
                 text("Cancel \t\t\t OK");
                 userInput = scanner.nextLine();
                 validInput(userInput, finalSelect);
                 
-                if(userInput == "cancel")
+                if(userInput.equals("cancel"))
                 {
-                    UI(hive);
+                    UI(hive, event);
                 }
                 // run check to see if they can afford it
-                if (userInput == "ok" && ut.validateInvUpgrade(hive) == true)
+                if (userInput.equals("ok") && ut.validateInvUpgrade(hive) == true)
                 {
                     UserCommands beeUpgrade = new beeUpgrade(hive);
                     beeUpgrade.option();   
                 }
                 else
                 {
-                    UI(hive);
+                    UI(hive, event);
                 }
             }
-            if (userInput == "honey")
+            if (userInput.equals("honey"))
             {
-                text("Honey: Capacity increases from " + hive.getHonInv() + " --> " + hive.getHonInv() + 100);
-                text("Cost: 25 Wax");
+                int sizeIncrement = hive.getHonInv() + 25;
+                text("Honey: Capacity increases from " + hive.getHonInv() + " --> " + sizeIncrement);
+                text("Cost: 10 Wax");
                 text(breaker);
                 text("Cancel \t\t\t OK");
                 userInput = scanner.nextLine();
                 validInput(userInput, finalSelect);
                 // run check to see if they can afford it
-                if(userInput == "cancel")
+                if(userInput.equals("cancel"))
                 {
-                    UI(hive);
+                    UI(hive, event);
                 }
-                if(userInput == "ok" && ut.validateInvUpgrade(hive) == true)
+                if(userInput.equals("ok") && ut.validateInvUpgrade(hive) == true)
                 {
                     UserCommands honeyUpgrade = new honeyUpgrade(hive);
                     honeyUpgrade.option();   
                 }
                 else
                 {
-                    UI(hive);
+                    UI(hive, event);
                 }
             }
-            if (userInput == "nectar")
+            if (userInput.equals("nectar"))
             {
-                text("Nectar: Capacity increases from " + hive.getNecInv() + " --> " + hive.getNecInv() + 100);
-                text("Cost: 25 Wax");
+                int sizeIncrement = hive.getNecInv() + 50;
+                text("Nectar: Capacity increases from " + hive.getNecInv() + " --> " + sizeIncrement);
+                text("Cost: 10 Wax");
                 text(breaker);
                 text("Cancel \t\t\t OK");
                 userInput = scanner.nextLine();
                 validInput(userInput, finalSelect);
-                if(userInput == "cancel")
+                if(userInput.equals("cancel"))
                 {
-                    UI(hive);
+                    UI(hive, event);
                 }
-                if(userInput == "ok" && ut.validateInvUpgrade(hive) == true)
+                if(userInput.equals("ok") && ut.validateInvUpgrade(hive) == true)
                 {
                     UserCommands nectarUpgrade = new nectarUpgrade(hive);
                     nectarUpgrade.option();   
                 }
                 else
                 {
-                    UI(hive);
+                    UI(hive, event);
                 }
             }
-            if (userInput == "wax")
+            if (userInput.equals("wax"))
             {
-                text("Wax: Capacity increases from " + hive.getWaxInv() + " --> " + hive.getWaxInv() + 100);
-                text("Cost: 25 Wax");
+                int sizeIncrement = hive.getWaxInv() + 25;
+                text("Wax: Capacity increases from " + hive.getWaxInv() + " --> " + sizeIncrement);
+                text("Cost: 10 Wax");
                 text(breaker);
                 text("Cancel \t\t\t OK");
                 userInput = scanner.nextLine();
                 validInput(userInput, finalSelect);
                 //make sure they have the resources
                 
-                if(userInput == "cancel")
+                if(userInput.equals("cancel"))
                 {
-                    UI(hive);  
+                    UI(hive, event);  
                 }
-                if(userInput == "ok" && ut.validateInvUpgrade(hive) == true)
+                if(userInput.equals("ok") && ut.validateInvUpgrade(hive) == true)
                 {
                     UserCommands waxUpgrade = new waxUpgrade(hive);
                     waxUpgrade.option();   
                 }
                 else
                 {
-                    UI(hive);
+                    UI(hive, event);
                 }
             }
         }
@@ -158,7 +182,7 @@ public class UserInterface
         /*
          * displays the current statistics of the players hive
          */
-        if (userInput == "collection")
+        if (userInput.equals("collection"))
         {
             // call the collection option and display the necessary info
             UserCommands collection = new collection(hive);
@@ -169,9 +193,9 @@ public class UserInterface
             validInput(userInput, collectSelect);
             
             // allows the player to look at the info until they type cancel
-            if(userInput == "cancel")
+            if(userInput.equals("cancel"))
             {
-                UI(hive);  
+                UI(hive, event);  
             }
         }
         
@@ -179,7 +203,7 @@ public class UserInterface
          * allows the player to convert one resource to another
          * specifically nectar into wax or honey
          */
-        if (userInput == "production")
+        if (userInput.equals("production"))
         {
             // show the current resources
             text(breaker);
@@ -194,7 +218,7 @@ public class UserInterface
             userInput = scanner.nextLine();
             validInput(userInput, produceSelect);
 
-            if(userInput == "worker" && hive.getBeeTotal() < hive.getBeeInv())       
+            if(userInput.equals("worker") && hive.getBeeTotal() < hive.getBeeInv())       
             {
                 text("You have " + hive.getBeeTotal() + "/" + hive.getBeeInv() + " Bees!");
                 text("How many workers would you like to produce?");
@@ -202,15 +226,14 @@ public class UserInterface
                 int userAmount = scanner.nextInt();
                 if(ut.validateMakeBee(userAmount, ut.calcMaxWork(hive)) == true)
                 {
+                    text("Worker was made!");
                     UserCommands workProd = new workProduce(hive, userAmount);
                     workProd.option();
                 }
                 else
-                {
-                    UI(hive);
-                }
+                    text("You are at max capacity for this material!");
             }
-            if(userInput == "drone" && hive.getBeeTotal() < hive.getBeeInv())       
+            if(userInput.equals("drone") && hive.getBeeTotal() < hive.getBeeInv())       
             {
                 text("You have " + hive.getBeeTotal() + "/" + hive.getBeeInv() + " Bees!");
                 text("How many drones would you like to produce?");
@@ -219,15 +242,14 @@ public class UserInterface
                 
                 if(ut.validateMakeBee(userAmount, ut.calcMaxDrone(hive)) == true)
                 {
+                    text("Drone was made!");
                     UserCommands droneProd = new droneProduce(hive, userAmount);
                     droneProd.option();
                 }
                 else
-                {
-                    UI(hive);
-                }
+                    text("You are at max capacity for this material!");
             }
-            if(userInput == "guardian" && hive.getBeeTotal() < hive.getBeeInv())       
+            if(userInput.equals("guardian") && hive.getBeeTotal() < hive.getBeeInv())       
             {
                 text("You have " + hive.getBeeTotal() + "/" + hive.getBeeInv() + " Bees!");
                 text("How many guardians would you like to produce?");
@@ -236,20 +258,19 @@ public class UserInterface
                 
                 if(ut.validateMakeBee(userAmount, ut.calcMaxGuard(hive)) == true)
                 {
+                    text("Guardian was made!");
                     UserCommands guardianProd = new guardianProduce(hive, userAmount);
                     guardianProd.option();
                 }
                 else
-                {
-                    UI(hive);
-                }
+                    text("You are at max capacity for this material!");
             }
-            if(userInput == "cancel")
+            if(userInput.equals("cancel"))
             {
-                UI(hive);
+                UI(hive, event);
             }
 
-            if(userInput == "honey" && hive.getAvailable() > 0 && hive.getHoney() < hive.getHonInv())
+            if(userInput.equals("honey") && hive.getAvailable() > 0 && hive.getHoney() < hive.getHonInv())
             {
                 text("You have " + hive.getAvailable() + "/" + hive.getWorker() + " Worker Bees available!");
                 text("How much honey would you like to produce?");
@@ -257,15 +278,14 @@ public class UserInterface
                 int userAmount = scanner.nextInt();
                 if (ut.validateMakeHoney(userAmount, ut.calcMaxHoney(hive)) == true)
                 {
+                    text("Honey was made!");
                     UserCommands honeyProd = new honeyProduce(hive, userAmount);
                     honeyProd.option();
                 }
                 else
-                {
-                    UI(hive);
-                }
+                    text("You are at max capacity for this material!");
             }
-            else if(userInput == "wax" && hive.getAvailable() > 0 && hive.getWax() < hive.getWaxInv())
+            else if(userInput.equals("wax") && hive.getAvailable() > 0 && hive.getWax() < hive.getWaxInv())
             {
                 text("You have " + hive.getAvailable() + "/" + hive.getWorker() + " Worker Bees available!");
                 text("How much wax would you like to produce?");
@@ -273,32 +293,29 @@ public class UserInterface
                 int userAmount = scanner.nextInt();
                 if (ut.validateMakeHoney(userAmount, ut.calcMaxHoney(hive)) == true)
                 {
+                    text("Wax was made!");
                     UserCommands waxProd = new waxProduce(hive, userAmount);
                     waxProd.option();
                 }
                 else
-                {
-                    UI(hive);
-                }
+                    text("You are at max capacity for this material!");
             }
             else if(hive.getAvailable() == 0)
             {
                 text("All of your Worker Bees are tired!");
             }
-            else if(hive.getHoney() == hive.getHonInv() || hive.getWax() == hive.getWaxInv() || hive.getBeeTotal() == hive.getBeeInv())
-            {
-                text("You are at max capacity for this material!");
-            } 
         }
 
         /*
          * this will end the round/day and have all the bee's do their daily work
          * it will also increase the day counter and allow for possible events
          */
-        if (userInput == "end day")
+        if (userInput.equals("end day"))
         {
-            UserCommands endDay = new endDay(hive);
+            UserCommands endDay = new endDay(hive, event);
             endDay.option();
         }
+        else
+            UI(hive, event);
     }
 }

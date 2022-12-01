@@ -74,7 +74,7 @@ class Baby extends BeeType
     public Baby(baby combat, lazy work)
     {
         super(combat, work);
-        setHp(100);
+        setHp(1);
     }
     @Override
     public int fight()
@@ -97,7 +97,7 @@ class Guardian extends BeeType
     public Guardian(guardian combat, helpful work)
     {
         super(combat, work);
-        setHp(100);
+        setHp(25);
     }
     @Override
     public int fight()
@@ -120,7 +120,7 @@ class Drone extends BeeType
     public Drone(drone combat, efficient work)
     {
         super(combat, work);
-        setHp(100);
+        setHp(12);
     }
     @Override
     public int fight()
@@ -143,7 +143,7 @@ class Worker extends BeeType
     public Worker(worker combat, helpful work)
     {
         super(combat, work);
-        setHp(100);
+        setHp(6);
     }
     @Override
     public int fight()

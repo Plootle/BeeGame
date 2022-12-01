@@ -19,9 +19,11 @@ class efficient implements JobType
     {
         int nectar = 0;
         if(event == "jazz")
-            nectar = (rn.nextInt(20) + 15) * 2;
+            nectar = (rn.nextInt(8) + 3) * 2;
+        else if(event == "rainy")
+            nectar = (rn.nextInt(8) + 3) / 2;
         else
-            nectar = rn.nextInt(20) + 15;
+            nectar = rn.nextInt(8) + 3;
         return nectar;
     }
 }
@@ -34,9 +36,11 @@ class helpful implements JobType
     {
         int nectar = 0;
         if(event == "jazz")
-            nectar = (rn.nextInt(6) + 1) * 2;
+            nectar = (rn.nextInt(3) + 1) * 2;
+        else if(event == "rainy")
+            nectar = (rn.nextInt(3) + 1) / 2;
         else
-            nectar = rn.nextInt(6) + 1;
+            nectar = rn.nextInt(3) + 1;
         return nectar;
     }
 }

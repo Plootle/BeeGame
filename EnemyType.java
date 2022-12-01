@@ -45,7 +45,7 @@ class Hornet extends EnemyType
     public Hornet(hornet combat)
     {
         super(combat);
-        setHp(100);
+        setHp(6);
     }
     @Override
     public int fight()
@@ -63,7 +63,7 @@ class YellowJacket extends EnemyType
     public YellowJacket(yellowjacket combat)
     {
         super(combat);
-        setHp(100);
+        setHp(12);
     }
     @Override
     public int fight()
@@ -81,7 +81,7 @@ class DragonFly extends EnemyType
     public DragonFly(dragonfly combat)
     {
         super(combat);
-        setHp(100);
+        setHp(25);
     }
     @Override
     public int fight()

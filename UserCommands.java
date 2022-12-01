@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 // Here, we implement the use of a command pattern
 public interface UserCommands
@@ -207,25 +208,57 @@ class guardianProduce implements UserCommands
 class endDay implements UserCommands
 {
     Hive hive = new Hive();
-    public endDay(Hive h)
+    String event;
+    public endDay(Hive h, String e)
     {
         this.hive = h;
+        this.event = e;
     }
     @Override
     public void option()
     {
         hive.resetAvailable();
+        hive.addDay();
+
+        // Nectar collection done automatically at the start of the day.
+        for(int i = 0; i < hive.getWorker(); i++)
+        {
+            JobType effiJobType = new helpful();
+            hive.setNectar(effiJobType.work(event)); 
+        }
+        for(int i = 0; i < hive.getDrone(); i++)
+        {
+            JobType effiJobType = new efficient();
+            hive.setNectar(effiJobType.work(event)); 
+        }
+        for(int i = 0; i < hive.getGuardian(); i++)
+        {
+            JobType effiJobType = new helpful();
+            hive.setNectar(effiJobType.work(event)); 
+        }
     }
 }
 
 /*
- * In case of bad event, prompts user to battle
+ * In case of bad event, prompts user to battle.
  */
 class battle implements UserCommands
 {
+    Hive hive;
+    ArrayList<BeeType> beeList;
+    ArrayList<EnemyType> enemyList;
+    public battle(Hive h, ArrayList<BeeType> bL, ArrayList<EnemyType> eL)
+    {
+        this.hive = h;
+        this.beeList = bL;
+        this.enemyList = eL;
+    }
     @Override
     public void option()
     {
-        
+        //hornets       day 10
+        //yellowjackets day 20
+        //dragonflies   day 30
+        //fight order (guardian, drones, workers, then the queen)
     }
 }
