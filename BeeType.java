@@ -1,13 +1,13 @@
-//import java.util.Random;
-
+// This follows the strategy pattern
 public abstract class BeeType
 {
+
+    //needed variables
     public int hp = 0;
     private boolean life = true;
     abstract public int fight();
     abstract public int work();
     public String getName() {return "";}
-    //Random rn = new Random();
     protected CombatType combat;
     protected JobType work;
     public BeeType(CombatType combatType, JobType jobType){this.combat = combatType; this.work = jobType;}
@@ -16,7 +16,7 @@ public abstract class BeeType
     //checks to make sure the bee is still alive
     public Boolean isAlive()
     {
-        if(hp == 0) 
+        if(hp <= 0) 
         {
             life = false;
         }
@@ -42,13 +42,14 @@ public abstract class BeeType
     }
 }
 
+//creating classes for each type of Bee and how they fight/work
 class Queen extends BeeType
 {
     public String getName()
     {
         return "Queen";
     }
-    public Queen(queen combat, lazy work)
+    public Queen(queenCombat combat, lazy work)
     {
         super(combat, work);
         setHp(100);
@@ -65,13 +66,14 @@ class Queen extends BeeType
     }
 }
 
+//this was taken out due to complications, but the idea is the same as the rest
 class Baby extends BeeType
 {
     public String getName()
     {
         return "Baby";
     }
-    public Baby(baby combat, lazy work)
+    public Baby(babyCombat combat, lazy work)
     {
         super(combat, work);
         setHp(1);
@@ -94,7 +96,7 @@ class Guardian extends BeeType
     {
         return "Guardian";
     }
-    public Guardian(guardian combat, helpful work)
+    public Guardian(guardianCombat combat, helpful work)
     {
         super(combat, work);
         setHp(25);
@@ -117,7 +119,7 @@ class Drone extends BeeType
     {
         return "Drone";
     }
-    public Drone(drone combat, efficient work)
+    public Drone(droneCombat combat, efficient work)
     {
         super(combat, work);
         setHp(12);
@@ -140,7 +142,7 @@ class Worker extends BeeType
     {
         return "Worker";
     }
-    public Worker(worker combat, helpful work)
+    public Worker(workerCombat combat, helpful work)
     {
         super(combat, work);
         setHp(6);

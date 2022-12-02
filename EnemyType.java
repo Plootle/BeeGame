@@ -1,3 +1,4 @@
+// This follows the strategy pattern
 public abstract class EnemyType
 {
     public int hp = 0;
@@ -10,7 +11,7 @@ public abstract class EnemyType
     //checks to make sure the enemy is still alive
     public Boolean isAlive()
     {
-        if(hp == 0) 
+        if(hp <= 0) 
         {
             life = false;
         }
@@ -35,14 +36,14 @@ public abstract class EnemyType
         isAlive();
     }
 }
-
+//creating classes for each type of Enemy and how they fight
 class Hornet extends EnemyType
 {
     public String getName()
     {
         return "Hornet";
     }
-    public Hornet(hornet combat)
+    public Hornet(hornetCombat combat)
     {
         super(combat);
         setHp(6);
@@ -60,7 +61,7 @@ class YellowJacket extends EnemyType
     {
         return "YellowJacket";
     }
-    public YellowJacket(yellowjacket combat)
+    public YellowJacket(yellowjacketCombat combat)
     {
         super(combat);
         setHp(12);
@@ -78,7 +79,7 @@ class DragonFly extends EnemyType
     {
         return "DragonFly";
     }
-    public DragonFly(dragonfly combat)
+    public DragonFly(dragonflyCombat combat)
     {
         super(combat);
         setHp(25);

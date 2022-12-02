@@ -1,5 +1,6 @@
 public class Hive
 {
+    //Variables that keep track of everything we need
     private int dayCounter = 1;
     private int nectar = 10;
     private int nectarInv = 50;
@@ -8,10 +9,10 @@ public class Hive
     private int wax = 0;
     private int waxInv = 10;
     private int queenBee = 1;
-    private int workerBee = 4;
+    private int workerBee = 3;
     private int availableBees = workerBee;
-    private int droneBee = 4;
-    private int guardianBee = 1;
+    private int droneBee = 0;
+    private int guardianBee = 0;
     private int beeInv = 20;
     //int babyBee = 0;
 
@@ -79,6 +80,10 @@ public class Hive
     {
         nectar += add;
     }
+    public void setNectarReset(int add)
+    {
+        nectar = add;
+    }
     public void setHoney(int add)
     {
         honey += add;
@@ -106,6 +111,10 @@ public class Hive
     public void setGuardian(int add)
     {
         guardianBee += add;
+    }
+    public void setQueen(int add)
+    {
+        queenBee += add;
     }
 
     /*

@@ -1,12 +1,16 @@
 import java.util.Random;
-
+// This helps us implement the decorator pattern into BeeType and EnemyType
 public interface CombatType
 {
     public int combat();
     Random rn = new Random();
 }
 
-class queen implements CombatType
+/*
+ * Bees will have a set range on how each of them can attack and deal damage
+ * ex. guardianCombat: Guardian bees will deal 5 damage minimum and up to 10 maximum 
+ */
+class queenCombat implements CombatType
 {
     @Override
     public int combat()
@@ -17,7 +21,7 @@ class queen implements CombatType
     }
 }
 
-class baby implements CombatType
+class babyCombat implements CombatType
 {
     @Override
     public int combat()
@@ -27,7 +31,7 @@ class baby implements CombatType
     }
 }
 
-class guardian implements CombatType
+class guardianCombat implements CombatType
 {
     @Override
     public int combat()
@@ -38,7 +42,7 @@ class guardian implements CombatType
     }
 }
 
-class drone implements CombatType
+class droneCombat implements CombatType
 {
     @Override
     public int combat()
@@ -49,7 +53,7 @@ class drone implements CombatType
     }
 }
 
-class worker implements CombatType
+class workerCombat implements CombatType
 {
     @Override
     public int combat()
@@ -60,7 +64,8 @@ class worker implements CombatType
     }
 }
 
-class hornet implements CombatType
+//Creating how each enemy fights
+class hornetCombat implements CombatType
 {
     @Override
     public int combat()
@@ -71,7 +76,7 @@ class hornet implements CombatType
     }
 }
 
-class yellowjacket implements CombatType
+class yellowjacketCombat implements CombatType
 {
     @Override
     public int combat()
@@ -82,7 +87,7 @@ class yellowjacket implements CombatType
     }
 }
 
-class dragonfly implements CombatType
+class dragonflyCombat implements CombatType
 {
     @Override
     public int combat()

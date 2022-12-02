@@ -1,13 +1,10 @@
 import java.util.ArrayList;
-
 // Here, we implement the use of a command pattern
 public interface UserCommands
 {
     
     public void option();
 }
-
-
 
 /*
  * Upgrades will increase capacity for the specified resource
@@ -23,7 +20,7 @@ class beeUpgrade implements UserCommands
     public void option()
     {
         hive.addBeeInv(20);
-        hive.setWax(-25);
+        hive.setWax(-10);
     }
 }
 
@@ -38,7 +35,7 @@ class honeyUpgrade implements UserCommands
     public void option()
     {
         hive.addHonInv(100);
-        hive.setWax(-25);
+        hive.setWax(-10);
     }
 }
 
@@ -53,7 +50,7 @@ class nectarUpgrade implements UserCommands
     public void option()
     {
         hive.addNecInv(100);
-        hive.setWax(-25);
+        hive.setWax(-10);
     }
 }
 
@@ -68,15 +65,15 @@ class waxUpgrade implements UserCommands
     public void option()
     {
         hive.addWaxInv(100);
-        hive.setWax(-25);
+        hive.setWax(-10);
     }
 }
 
 /*
  * Show detailed comprehension of the hive
- * - # of bees
- * - Inventory of all materials
  * - Day Count
+ * - Inventory of all materials
+ * - # of bees
  */
 class collection implements UserCommands
 {
@@ -219,7 +216,15 @@ class endDay implements UserCommands
     {
         hive.resetAvailable();
         hive.addDay();
-
+        
+        if(event.equals("jazz"))
+        {
+            System.out.println("A BEE-utiful song plays in the village nearby. The Bee's are inspired to collect more than usual!");
+        }
+        if(event.equals("rainy"))
+        {
+            System.out.println("It is un-BEE-leavibly rainy today, making it hard to collect nectar. Nectar Collection is lower than usual today...");
+        }
         // Nectar collection done automatically at the start of the day.
         for(int i = 0; i < hive.getWorker(); i++)
         {
@@ -235,6 +240,13 @@ class endDay implements UserCommands
         {
             JobType effiJobType = new helpful();
             hive.setNectar(effiJobType.work(event)); 
+        }
+        
+        // If nectar collection goes above inventory capacity, sets amount to be inventory size
+        if(hive.getNectar() > hive.getNecInv())
+        {
+            System.out.println("Capped out");
+            hive.setNectarReset(hive.getNecInv());
         }
     }
 }

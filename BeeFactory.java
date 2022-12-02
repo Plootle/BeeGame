@@ -1,28 +1,28 @@
 public class BeeFactory
 {
+    // This follows factory pattern
     public BeeType makeBees(String userInput)
     {
-        //this returns one of the bee classes
+        //returns one of the bee classes
         if (userInput.equals("queen"))
         {
-            return new Queen(new queen(), new lazy());   
+            return new Queen(new queenCombat(), new lazy());   
         } 
         else if (userInput.equals("baby"))
         {
-            return new Baby(new baby(), new lazy());
+            return new Baby(new babyCombat(), new lazy());
         } 
         else if (userInput.equals("guardian"))
         {
-            return new Guardian(new guardian(), new helpful());
+            return new Guardian(new guardianCombat(), new helpful());
         } 
         else if (userInput.equals("drone"))
         {
-            return new Drone(new drone(), new efficient());
+            return new Drone(new droneCombat(), new efficient());
         }
         else if (userInput.equals("worker"))
         {
-            
-            return new Worker(new worker(), new helpful());
+            return new Worker(new workerCombat(), new helpful());
         }
         else
         {
